@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Hearts on fire...</title>
+	<meta charset="utf-8">
+	<meta name='viewport' content='width=device-width,initial-scale=1'>
+	<link rel="shortcut icon" href="https://sun9-67.userapi.com/impg/jUvwwbwXVDieUIanDtWgt5pzvFpZfAzsxCLhXw/Da2ORSwUpcg.jpg?size=1620x2160&quality=96&proxy=1&sign=882b05de9f115631f2f69a38ce512c9d&type=album" type="image/x-icon">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Teko:wght@300&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Love+Ya+Like+A+Sister">
+</head>
+<body>
+	<div class="container">
+		<div class="text">Hearts on fire...</div>
+		<div class="heart"></div>
+	</div>
+	<script src="anime.min.js"></script>
+	<script type="text/javascript">
+		const container = document.querySelector(".container");
+		for(let i = 0; i <= 100; i++){
+			const hearts = document.createElement('div');
+			hearts.classList.add('heart');
+			container.appendChild(hearts);
+		}
+		function animateHearts(){
+			anime({
+				targets: '.heart',
+				translateX: function(){
+					return anime.random(-700,700);
+				},
+				translateY: function(){
+					return anime.random(-500,500);
+				},
+				rotate: function() {
+					return anime.random(35, 55);
+				},
+				scale: function(){
+					return anime.random(1,5);
+				},
+				easing: 'easeInOutBack',
+				duration: 3000,
+				delay: anime.stagger(10),
+				complete: animateHearts,
+			})
+		}
+		animateHearts();
+	</script>
+</body>
+</html>
